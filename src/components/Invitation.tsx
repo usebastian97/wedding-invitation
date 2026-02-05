@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { Cormorant_Garamond, Playfair_Display } from "next/font/google";
 import { FloralBorder, Divider } from "./Ornament";
@@ -20,10 +20,10 @@ const playfair = Playfair_Display({
 
 function CountdownTimer({ targetDate }: { targetDate: string }) {
   const [timeLeft, setTimeLeft] = useState({
-    days: 0,
-    hours: 0,
-    minutes: 0,
-    seconds: 0,
+    zile: 0,
+    ore: 0,
+    minute: 0,
+    secunde: 0,
   });
 
   useEffect(() => {
@@ -32,14 +32,14 @@ function CountdownTimer({ targetDate }: { targetDate: string }) {
       const distance = new Date(targetDate).getTime() - now;
 
       if (distance < 0) {
-        return { days: 0, hours: 0, minutes: 0, seconds: 0 };
+        return { zile: 0, ore: 0, minute: 0, secunde: 0 };
       }
 
       return {
-        days: Math.floor(distance / (1000 * 60 * 60 * 24)),
-        hours: Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
-        minutes: Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
-        seconds: Math.floor((distance % (1000 * 60)) / 1000),
+        zile: Math.floor(distance / (1000 * 60 * 60 * 24)),
+        ore: Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+        minute: Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
+        secunde: Math.floor((distance % (1000 * 60)) / 1000),
       };
     };
 
@@ -58,7 +58,7 @@ function CountdownTimer({ targetDate }: { targetDate: string }) {
       transition={{ duration: 1, delay: 0.6 }}
       className="max-w-xl mx-auto"
     >
-      <div className="text-[#c5a059] uppercase tracking-[0.3em] text-[10px] font-bold mb-8 text-center">Counting Down to the Occasion</div>
+      <div className="text-[#c5a059] uppercase tracking-[0.3em] text-[10px] font-bold mb-8 text-center">Până la Clipă Mult Așteptată</div>
       <div className="grid grid-cols-4 gap-4 md:gap-8">
         {Object.entries(timeLeft).map(([label, value]) => (
           <div key={label} className="flex flex-col items-center space-y-1">
@@ -113,16 +113,66 @@ function ProgramItem({ time, activity, delay }: { time: string, activity: string
 
 export function Invitation() {
   const [isMuted, setIsMuted] = useState(true);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (!audio) return;
+
+    let didCancel = false;
+
+    const tryAutoplay = () => {
+      audio
+        .play()
+        .then(() => {
+          if (!didCancel) setIsMuted(false);
+        })
+        .catch(() => {
+          if (!didCancel) setIsMuted(true);
+        });
+    };
+
+    tryAutoplay();
+
+    return () => {
+      didCancel = true;
+    };
+  }, []);
+
+  const handleAudioToggle = () => {
+    const audio = audioRef.current;
+    if (!audio) return;
+
+    if (isMuted) {
+      audio
+        .play()
+        .then(() => setIsMuted(false))
+        .catch(() => {
+          setIsMuted(true);
+        });
+    } else {
+      audio.pause();
+      setIsMuted(true);
+    }
+  };
 
   return (
     <main className={`${cormorant.className} min-h-screen relative overflow-x-hidden selection:bg-[#c5a059] selection:text-white bg-[#fdfaf6]`}>
       <FloralBorder />
       <Petals />
+
+      <audio
+        ref={audioRef}
+        src="/Cheap%20Thrills%20-%20Release.mp3"
+        preload="auto"
+        onEnded={() => setIsMuted(true)}
+      />
       
       {/* Sound Toggle */}
       <button 
-        onClick={() => setIsMuted(!isMuted)}
+        onClick={handleAudioToggle}
         className="fixed top-8 right-8 z-50 p-3 rounded-full bg-white/80 backdrop-blur shadow-md text-[#c5a059] border border-[#c5a059]/20 hover:scale-110 transition-transform active:scale-95"
+        aria-label={isMuted ? "Play music" : "Pause music"}
       >
         {isMuted ? <Music className="w-5 h-5 opacity-40" /> : <Music className="w-5 h-5 animate-pulse" />}
       </button>
@@ -199,16 +249,16 @@ export function Invitation() {
           <div className="grid md:grid-cols-2 gap-12 text-center mb-16">
             <DetailCard 
               icon={<Calendar className="w-6 h-6" />}
-              title="When"
-              details="Sunday, July 5th, 2026"
-              subDetails="at Four O'Clock in the Afternoon"
+              title="Cand?"
+              details="Duminca, 05 Iulie 2026"
+              subDetails="Incepand cu ora 19:00"
               delay={0.2}
             />
             <DetailCard 
               icon={<MapPin className="w-6 h-6" />}
-              title="Where"
-              details="The Danbury Estate"
-              subDetails="Mayfair, London, UK"
+              title="Unde?"
+              details="Hilston Ballroom"
+              subDetails="Slatina, Olt, Romania"
               delay={0.4}
             />
           </div>
@@ -258,8 +308,8 @@ export function Invitation() {
             whileInView={{ opacity: 1, y: 0 }}
             className="text-center mb-16 space-y-4"
           >
-            <span className="text-[#c5a059] uppercase tracking-[0.3em] text-sm font-medium">The Day's Proceedings</span>
-            <h2 className={`${playfair.className} text-4xl md:text-6xl text-white`}>Wedding Program</h2>
+            <span className="text-[#c5a059] uppercase tracking-[0.3em] text-sm font-medium">Desfășurarea Zilei</span>
+            <h2 className={`${playfair.className} text-4xl md:text-6xl text-white`}>Programul Nunții</h2>
             <div className="w-24 h-[1px] bg-[#c5a059] mx-auto opacity-50" />
           </motion.div>
 
@@ -267,7 +317,8 @@ export function Invitation() {
             <ProgramItem time="16:00" activity="Ceremonia Religioasă" delay={0.2} />
             <ProgramItem time="18:30" activity="Cocktail de Bun Venit" delay={0.4} />
             <ProgramItem time="19:30" activity="Petrecerea & Cina" delay={0.6} />
-            <ProgramItem time="00:00" activity="Tortul & Șampania" delay={0.8} />
+            <ProgramItem time="21:00" activity="Dansul mirilor & Momentul special" delay={.8}/>
+            <ProgramItem time="00:00" activity="Tortul & Șampania" delay={1} />
           </div>
 
           <motion.div
@@ -277,27 +328,27 @@ export function Invitation() {
             className="text-center space-y-12"
           >
             <div className="space-y-6">
-              <span className="text-[#c5a059] uppercase tracking-[0.3em] text-xs font-bold">A Keepsake for the Ton</span>
+             
               <div className="flex flex-col items-center">
                 <a 
                   href="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/023d3f87-d315-4bce-bebc-104525a66326/bridge-1-1770304983369.jpg" 
                   download="Invitation_Sebastian_Marina.png"
                   className="px-10 py-4 bg-[#c5a059] text-white uppercase tracking-[0.3em] text-xs font-bold hover:bg-[#b08d4a] transition-all transform hover:scale-105 shadow-xl rounded-sm"
                 >
-                  Download PNG Invitation
+                  Descarca invitația
                 </a>
               </div>
             </div>
 
             <div className="space-y-8 pt-12 border-t border-white/10">
               <p className="text-white/80 text-lg md:text-xl italic font-light max-w-md mx-auto">
-                "Your presence is requested. Kindly confirm your attendance to ensure your name remains upon the guest list."
+                "Ne-ar face o deosebită plăcere să vă avem alături. Vă rugăm să confirmați prezența"
               </p>
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="space-y-1">
                   <div className="text-[#c5a059] text-[10px] uppercase tracking-widest font-bold">Confirmare Sebastian</div>
-                  <div className="text-white text-2xl font-light tracking-widest">07xx xxx xxx</div>
+                  <div className="text-white text-2xl font-light tracking-widest">0766 877 423</div>
                 </div>
                 <div className="space-y-1">
                   <div className="text-[#c5a059] text-[10px] uppercase tracking-widest font-bold">Confirmare Marina</div>

@@ -16,7 +16,7 @@ const cormorant = Cormorant_Garamond({
 
 export function SocietyPaper() {
   return (
-    <div className="relative max-w-3xl mx-auto">
+    <div className="relative max-w-3xl md:max-w-5xl lg:max-w-6xl mx-auto">
       
       <motion.div 
         initial={{ opacity: 0, y: 30 }}
@@ -67,12 +67,11 @@ export function SocietyPaper() {
 
             <p>
               Iar acum, dragi cititori, secretul este dezvăluit:<br />
-              o promisiune șoptită va deveni un legământ rostit,<br />
-              iar doi îndrăgostiți vor păși, cu grație și hotărâre, în căsătorie.
+              o promisiune șoptită va deveni un legământ rostit, iar doi îndrăgostiți vor păși, cu grație și hotărâre, în căsătorie.
             </p>
 
             <p>
-              Sunteți invitați să fiți martorii unui eveniment de cea mai mare importanță —<br />
+              Sunteți invitați să fiți martorii unui eveniment de cea mai mare importanță<br />
               nu un simplu anunț, ci celebrarea unei iubiri asumate, cultivate și, mai presus de toate, destinate să dăinuie.
             </p>
 
@@ -83,7 +82,7 @@ export function SocietyPaper() {
           </div>
 
           {/* Footer/Signature */}
-          <div className="pt-12 text-center space-y-6">
+          <div className="pt-12 text-left space-y-6">
             <div className="w-16 h-[1px] bg-[#c5a059]/30 mx-auto" />
             <p className="text-[#4a5568] italic text-lg md:text-xl">Cu discreție, eleganță și un strop de încântare,</p>
             <div className={`${playfair.className} text-3xl md:text-5xl text-[#c5a059] uppercase tracking-[0.2em] pt-2`}>
