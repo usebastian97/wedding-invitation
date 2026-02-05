@@ -141,39 +141,30 @@ export function Invitation() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.2, delay: 0.2 }}
-            className="max-w-3xl text-center space-y-8 relative z-10"
+            className="max-w-3xl text-center space-y-2 relative z-10"
           >
-            <span className="text-[#c5a059] uppercase tracking-[0.3em] text-sm font-medium">Dearest Gentle Reader</span>
-            
-            <h1 className={`${playfair.className} text-5xl md:text-7xl lg:text-8xl text-white leading-tight`}>
-              The Season's <br />
-              <span className="italic">Grandest Union</span>
-            </h1>
+            <div className="space-y-2">
+           
+              <Divider />
 
-            <Divider />
-
-            <p className="text-xl md:text-2xl text-white/90 max-w-2xl mx-auto leading-relaxed italic">
-              "It has been said that marriage is a social contract, but here, it is a matter of the heart."
-            </p>
+              <p className="text-xl md:text-2xl text-white/90 max-w-2xl mx-auto leading-relaxed italic">
+               "Într-o lume a regulilor și aparențelor, NOI am ales ceea ce nu se negociază: IUBIREA."
+              </p>
+            </div>
 
             <motion.div 
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ delay: 1, duration: 1 }}
-              className="pt-10 flex flex-col items-center"
+              className="pt-6 flex flex-col items-center"
             >
                 <div className="text-2xl md:text-3xl font-medium text-white mb-2 uppercase tracking-widest">
                   Sebastian & Marina
                 </div>
-              <div className="text-[#c5a059] text-lg italic mb-8">
-                Cordially invite you to celebrate their wedding
+              <div className="text-[#c5a059] text-lg italic mb-4">
+                Vă invităm cu deosebită plăcere să luați parte la celebrarea căsătoriei noastre.
               </div>
-            <a 
-              href="#program"
-              className="px-8 py-3 bg-[#c5a059] text-white uppercase tracking-widest text-xs font-bold rounded-sm hover:bg-[#b08d4a] transition-colors shadow-lg"
-            >
-              Confirm Attendance
-            </a>
+            
           </motion.div>
         </motion.div>
 
@@ -229,8 +220,26 @@ export function Invitation() {
       </section>
 
       {/* Message Section */}
-      <section className="py-32 px-6">
-        <SocietyPaper />
+      <section className="py-32 px-6 bg-white/50 backdrop-blur-sm relative border-y border-[#c5a059]/20 overflow-hidden">
+        {/* Floral Edges */}
+        <div className="absolute left-0 top-0 bottom-0 w-32 md:w-48 opacity-40 pointer-events-none select-none z-0">
+          <img 
+            src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/023d3f87-d315-4bce-bebc-104525a66326/floral-border-J4FzR5M8-1770301965596.png?width=8000&height=8000&resize=contain" 
+            alt="" 
+            className="w-full h-full object-cover scale-x-[-1]"
+          />
+        </div>
+        <div className="absolute right-0 top-0 bottom-0 w-32 md:w-48 opacity-40 pointer-events-none select-none z-0">
+          <img 
+            src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/023d3f87-d315-4bce-bebc-104525a66326/floral-border-J4FzR5M8-1770301965596.png?width=8000&height=8000&resize=contain" 
+            alt="" 
+            className="w-full h-full object-cover"
+          />
+        </div>
+
+        <div className="relative z-10">
+          <SocietyPaper />
+        </div>
       </section>
 
       {/* Wedding Program & Invitation Section */}

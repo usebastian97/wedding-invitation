@@ -17,6 +17,7 @@ const cormorant = Cormorant_Garamond({
 export function SocietyPaper() {
   return (
     <div className="relative max-w-3xl mx-auto">
+      
       <motion.div 
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -30,29 +31,33 @@ export function SocietyPaper() {
           {/* Header */}
           <div className="text-center space-y-4">
             <div className="inline-block px-6 py-1 border border-[#c5a059]/30 text-[#c5a059] text-[10px] md:text-xs uppercase tracking-[0.5em]">
-              Society Paper
+              Cronica Societății
             </div>
-            <h2 className={`${playfair.className} text-3xl md:text-4xl text-[#1a365d] italic`}>Special Edition</h2>
+            <img
+              src="/rings-illustration-tO3OeALU.png"
+              alt="Rings illustration"
+              className="mx-auto w-32 md:w-40 h-auto"
+            />
             <div className="w-24 h-[1px] bg-[#c5a059]/30 mx-auto" />
           </div>
 
           {/* Story Content */}
-          <div className={`${cormorant.className} text-xl md:text-2xl text-[#4a5568] leading-relaxed space-y-10 text-center`}>
+          <div className={`${cormorant.className} text-xl md:text-2xl text-[#4a5568] leading-relaxed space-y-10 text-left`}>
             <div className="space-y-4">
               <p className={`${playfair.className} text-2xl md:text-3xl italic text-[#1a365d]`}>
                 Ei bine… dragi cititori,<br />
-                chiar și cele mai mari povești încep, uneori, în cea mai desăvârșită liniște.
+                chiar și cele mai mari povești încep uneori în cea mai desăvârșită liniște.
               </p>
             </div>
 
             <p>
-              Totul a început într-o zi de vară — 16 iunie 2015 — când două inimi au găsit curajul să meargă împreună.<br />
+              Totul a început într-o zi de vară - 16 iunie 2015, când două inimi au găsit curajul să meargă împreună.<br />
               Ceea ce părea o promisiune blândă s-a transformat, în taină, într-o iubire modelată de timp, râsete, încercări și nenumărate vise împărtășite.
             </p>
 
             <p>
               Într-o lume a aparențelor atent construite și a șoaptelor purtate cu grijă, această legătură nu a putut rămâne neobservată.<br />
-              Anii au trecut, iar cei doi nu au ales comoditatea, ci certitudinea — una rară, statornică și profundă.
+              Anii au trecut, iar cei doi nu au ales comoditatea, ci certitudinea, una rară, statornică și profundă.
             </p>
 
             <p>
@@ -60,7 +65,7 @@ export function SocietyPaper() {
               toate au condus, inevitabil, către momentul pe care societatea îl bănuia, dar pe care doar iubirea îl putea confirma.
             </p>
 
-            <p className={`${playfair.className} text-2xl md:text-3xl italic text-[#1a365d]`}>
+            <p>
               Iar acum, dragi cititori, secretul este dezvăluit:<br />
               o promisiune șoptită va deveni un legământ rostit,<br />
               iar doi îndrăgostiți vor păși, cu grație și hotărâre, în căsătorie.
