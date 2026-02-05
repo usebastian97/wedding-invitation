@@ -191,11 +191,13 @@ export function Invitation() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.2, delay: 0.2 }}
-            className="max-w-3xl text-center space-y-2 relative z-10"
+            className="max-w-3xl text-center space-y-2 relative z-10 mt-40 md:mt-0"
           >
             <div className="space-y-2">
            
-              <Divider />
+              <div className="mt-12 md:mt-0">
+                <Divider />
+              </div>
 
               <p className="text-xl md:text-2xl text-white/90 max-w-2xl mx-auto leading-relaxed italic">
                "Într-o lume a regulilor și aparențelor, NOI am ales ceea ce nu se negociază: IUBIREA."
