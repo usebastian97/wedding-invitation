@@ -124,22 +124,43 @@ export function Invitation() {
     if (!audio) return;
 
     let didCancel = false;
+    let unlocked = false;
 
-    const tryAutoplay = () => {
+    const tryPlay = () => {
       audio
         .play()
         .then(() => {
-          if (!didCancel) setIsMuted(false);
+          if (!didCancel) {
+            setIsMuted(false);
+            unlocked = true;
+          }
         })
         .catch(() => {
           if (!didCancel) setIsMuted(true);
         });
     };
 
-    tryAutoplay();
+    const handleFirstInteraction = () => {
+      if (unlocked) return;
+      tryPlay();
+      if (unlocked) {
+        window.removeEventListener("pointerdown", handleFirstInteraction);
+        window.removeEventListener("touchstart", handleFirstInteraction);
+        window.removeEventListener("keydown", handleFirstInteraction);
+      }
+    };
+
+    tryPlay();
+
+    window.addEventListener("pointerdown", handleFirstInteraction, { passive: true });
+    window.addEventListener("touchstart", handleFirstInteraction, { passive: true });
+    window.addEventListener("keydown", handleFirstInteraction);
 
     return () => {
       didCancel = true;
+      window.removeEventListener("pointerdown", handleFirstInteraction);
+      window.removeEventListener("touchstart", handleFirstInteraction);
+      window.removeEventListener("keydown", handleFirstInteraction);
     };
   }, []);
 
