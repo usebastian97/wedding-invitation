@@ -18,6 +18,10 @@ const playfair = Playfair_Display({
   weight: ["400", "700"],
 });
 
+const basePath = (process.env.NEXT_PUBLIC_BASE_PATH ?? "").replace(/\/$/, "");
+const withBasePath = (path: string) =>
+  `${basePath}${path.startsWith("/") ? "" : "/"}${path}`;
+
 function CountdownTimer({ targetDate }: { targetDate: string }) {
   const [timeLeft, setTimeLeft] = useState({
     zile: 0,
@@ -163,7 +167,7 @@ export function Invitation() {
 
       <audio
         ref={audioRef}
-        src="/Cheap%20Thrills%20-%20Release.mp3"
+        src={withBasePath("/Cheap%20Thrills%20-%20Release.mp3")}
         preload="auto"
         onEnded={() => setIsMuted(true)}
       />

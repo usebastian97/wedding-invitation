@@ -14,6 +14,10 @@ const cormorant = Cormorant_Garamond({
   weight: ["300", "400", "500", "600", "700"],
 });
 
+const basePath = (process.env.NEXT_PUBLIC_BASE_PATH ?? "").replace(/\/$/, "");
+const withBasePath = (path: string) =>
+  `${basePath}${path.startsWith("/") ? "" : "/"}${path}`;
+
 export function SocietyPaper() {
   return (
     <div className="relative max-w-3xl md:max-w-5xl lg:max-w-6xl mx-auto">
@@ -34,7 +38,7 @@ export function SocietyPaper() {
               Cronica Societății
             </div>
             <img
-              src="/rings-illustration-tO3OeALU.png"
+              src={withBasePath("/rings-illustration-tO3OeALU.png")}
               alt="Rings illustration"
               className="mx-auto w-32 md:w-40 h-auto"
             />
