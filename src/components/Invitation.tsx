@@ -169,6 +169,31 @@ export function Invitation() {
     };
   }, []);
 
+  useEffect(() => {
+    const stopAudio = () => {
+      const audio = audioRef.current;
+      if (!audio) return;
+      audio.pause();
+      setIsMuted(true);
+    };
+
+    const handleVisibilityChange = () => {
+      if (document.hidden) {
+        stopAudio();
+      }
+    };
+
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+    window.addEventListener("pagehide", stopAudio);
+    window.addEventListener("beforeunload", stopAudio);
+
+    return () => {
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
+      window.removeEventListener("pagehide", stopAudio);
+      window.removeEventListener("beforeunload", stopAudio);
+    };
+  }, []);
+
   const handleAudioToggle = () => {
     const audio = audioRef.current;
     if (!audio) return;
@@ -241,7 +266,7 @@ export function Invitation() {
               className="pt-6 flex flex-col items-center"
             >
                 <div className="text-2xl md:text-3xl font-medium text-white mb-2 uppercase tracking-widest">
-                  Sebastian & Marina
+                Marina & Sebastian
                 </div>
               <div className="text-[#c5a059] text-xl md:text-2xl italic mb-4">
                 Vă invităm cu deosebită plăcere să luați parte la celebrarea căsătoriei noastre.

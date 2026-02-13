@@ -65,7 +65,7 @@ export function SocietyPaper() {
             </p>
 
             <p>
-              Sunteți invitați să fiți martorii unei iubiri asumate, cultivate și, mai presus de toate, destinate să dăinuie.<br />
+              Sunteți invitați să fiți martorii unei iubiri asumate, cultivate și, mai presus de toate, destinate să dăinuie, alături de părinții noștrii Dumitru & Liliana Uțoiu şi Mihai & Mihaela Ștefan.<br />
              
             </p>
 
@@ -80,7 +80,7 @@ export function SocietyPaper() {
             <div className="w-16 h-[1px] bg-[#c5a059]/30 mx-auto" />
             <p className="text-[#4a5568] italic text-lg md:text-xl">Cu discreție, eleganță și un strop de încântare,</p>
             <div className={`${playfair.className} text-3xl md:text-5xl text-[#c5a059] uppercase tracking-[0.2em] pt-2`}>
-              Sebastian & Marina
+              Marina & Sebastian
             </div>
           </div>
         </div>
