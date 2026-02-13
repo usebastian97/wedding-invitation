@@ -17,9 +17,39 @@ const playfair = Playfair_Display({
   variable: "--font-playfair",
 });
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://wedding-invitation-theta-wine.vercel.app";
+const heroImage =
+  "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/023d3f87-d315-4bce-bebc-104525a66326/Gemini_Generated_Image_5kubfe5kubfe5kub-resized-1770299721566.webp";
+
 export const metadata: Metadata = {
-  title: "Dearest Gentle Reader - A Wedding Invitation",
-  description: "You are cordially invited to celebrate the union of two souls in a Regency-style celebration.",
+  metadataBase: new URL(siteUrl),
+  title: "Sebastian & Marina - Wedding Invitation",
+  description: "Vă invităm cu deosebită plăcere să luați parte la celebrarea căsătoriei noastre.",
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    type: "website",
+    locale: "ro_RO",
+    url: "/",
+    siteName: "Sebastian & Marina - Wedding Invitation",
+    title: "Sebastian & Marina - Wedding Invitation",
+    description: "Vă invităm cu deosebită plăcere să luați parte la celebrarea căsătoriei noastre.",
+    images: [
+      {
+        url: heroImage,
+        width: 1200,
+        height: 630,
+        alt: "Sebastian și Marina",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Sebastian & Marina - Wedding Invitation",
+    description: "Vă invităm cu deosebită plăcere să luați parte la celebrarea căsătoriei noastre.",
+    images: [heroImage],
+  },
 };
 
 export default function RootLayout({
