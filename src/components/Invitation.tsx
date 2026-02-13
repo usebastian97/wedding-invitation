@@ -62,7 +62,7 @@ function CountdownTimer({ targetDate }: { targetDate: string }) {
       transition={{ duration: 1, delay: 0.6 }}
       className="max-w-xl mx-auto"
     >
-      <div className="text-[#c5a059] uppercase tracking-[0.3em] text-[10px] font-bold mb-8 text-center">Până la Clipă Mult Așteptată</div>
+      <div className="text-[#c5a059] uppercase tracking-[0.3em] text-[10px] font-bold mb-8 text-center">Până la clipă mult Așteptată</div>
       <div className="grid grid-cols-4 gap-4 md:gap-8">
         {Object.entries(timeLeft).map(([label, value]) => (
           <div key={label} className="flex flex-col items-center space-y-1">
@@ -97,7 +97,7 @@ function DetailCard({ icon, title, details, subDetails, delay }: { icon: React.R
   );
 }
 
-function ProgramItem({ time, activity, delay }: { time: string, activity: string, delay: number }) {
+function ProgramItem({ time, activity, location, delay }: { time: string, activity: string, location?: string, delay: number }) {
   return (
     <motion.div
       initial={{ opacity: 0, x: -20 }}
@@ -109,7 +109,12 @@ function ProgramItem({ time, activity, delay }: { time: string, activity: string
         {time}
       </div>
       <div className="flex-grow">
-        <div className="text-xl md:text-2xl text-white uppercase tracking-widest">{activity}</div>
+        <div className="text-lg md:text-2xl leading-snug text-white uppercase tracking-[0.12em] md:tracking-widest">{activity}</div>
+        {location && (
+          <div className="mt-1 text-[11px] md:text-sm text-white/70 tracking-[0.08em] uppercase">
+            {location}
+          </div>
+        )}
       </div>
     </motion.div>
   );
@@ -238,7 +243,7 @@ export function Invitation() {
                 <div className="text-2xl md:text-3xl font-medium text-white mb-2 uppercase tracking-widest">
                   Sebastian & Marina
                 </div>
-              <div className="text-[#c5a059] text-lg italic mb-4">
+              <div className="text-[#c5a059] text-xl md:text-2xl italic mb-4">
                 Vă invităm cu deosebită plăcere să luați parte la celebrarea căsătoriei noastre.
               </div>
             
@@ -276,14 +281,14 @@ export function Invitation() {
           <div className="grid md:grid-cols-2 gap-12 text-center mb-16">
             <DetailCard 
               icon={<Calendar className="w-6 h-6" />}
-              title="Cand?"
-              details="Duminca, 05 Iulie 2026"
-              subDetails="Incepand cu ora 19:00"
+              title="Data nunții"
+              details="Duminicã, 05 Iulie 2026"
+              subDetails="Începând cu ora 19:00"
               delay={0.2}
             />
             <DetailCard 
               icon={<MapPin className="w-6 h-6" />}
-              title="Unde?"
+              title="Locația"
               details="Hilston Ballroom"
               subDetails="Slatina, Olt, Romania"
               delay={0.4}
@@ -341,7 +346,7 @@ export function Invitation() {
           </motion.div>
 
           <div className="space-y-2 mb-20">
-            <ProgramItem time="16:00" activity="Ceremonia Religioasă" delay={0.2} />
+            <ProgramItem time="16:00" activity="Ceremonia Religioasă" location="Catedrala Episcopalā Slatina" delay={0.2} />
             <ProgramItem time="18:30" activity="Cocktail de Bun Venit" delay={0.4} />
             <ProgramItem time="19:30" activity="Petrecerea & Cina" delay={0.6} />
             <ProgramItem time="21:00" activity="Dansul mirilor & Momentul special" delay={.8}/>
@@ -360,32 +365,32 @@ export function Invitation() {
                 <a 
                   href="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/023d3f87-d315-4bce-bebc-104525a66326/bridge-1-1770304983369.jpg" 
                   download="Invitation_Sebastian_Marina.png"
-                  className="px-10 py-4 bg-[#c5a059] text-white uppercase tracking-[0.3em] text-xs font-bold hover:bg-[#b08d4a] transition-all transform hover:scale-105 shadow-xl rounded-sm"
+                  className="w-full sm:w-auto px-8 md:px-10 py-3.5 md:py-4 bg-[#c5a059] text-white uppercase tracking-[0.12em] md:tracking-[0.22em] text-sm md:text-base font-semibold hover:bg-[#b08d4a] transition-all transform hover:scale-105 shadow-xl border border-white/20 rounded-sm text-center"
                 >
-                  Descarca invitația
+                  Descarcã invitația
                 </a>
               </div>
             </div>
 
             <div className="space-y-8 pt-12 border-t border-white/10">
               <p className="text-white/80 text-lg md:text-xl italic font-light max-w-md mx-auto">
-                "Ne-ar face o deosebită plăcere să vă avem alături. Vă rugăm să confirmați prezența"
+                "Ne-ar face o deosebită plăcere să vă avem alături."
               </p>
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="space-y-1">
-                  <div className="text-[#c5a059] text-[10px] uppercase tracking-widest font-bold">Confirmare Sebastian</div>
-                  <div className="text-white text-2xl font-light tracking-widest">0766 877 423</div>
+                  <div className="text-[#c5a059] text-[14px] uppercase tracking-widest font-bold">Confirmare Sebastian</div>
+                  <div className="text-white text-2xl font-light tracking-widest">+40 766 877 423</div>
                 </div>
                 <div className="space-y-1">
-                  <div className="text-[#c5a059] text-[10px] uppercase tracking-widest font-bold">Confirmare Marina</div>
-                  <div className="text-white text-2xl font-light tracking-widest">07xx xxx xxx</div>
+                  <div className="text-[#c5a059] text-[14px] uppercase tracking-widest font-bold">Confirmare Marina</div>
+                  <div className="text-white text-2xl font-light tracking-widest">+41 79 605 5099</div>
                 </div>
               </div>
 
               <div className="pt-4">
-                <p className="text-[#c5a059] uppercase tracking-[0.3em] text-[10px] font-bold border border-[#c5a059]/30 inline-block px-6 py-2">
-                  Vă rugăm să confirmați până la 1 Iunie 2026
+                <p className="text-[#e7c98b] text-sm md:text-base font-semibold border border-[#c5a059]/50 bg-black/20 inline-block px-5 md:px-6 py-2.5 rounded-sm text-center leading-relaxed tracking-[0.08em]">
+                  Vă rugăm să confirmați până la 1 iunie 2026
                 </p>
               </div>
             </div>

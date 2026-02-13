@@ -60,23 +60,13 @@ export function SocietyPaper() {
             </p>
 
             <p>
-              Într-o lume a aparențelor atent construite și a șoaptelor purtate cu grijă, această legătură nu a putut rămâne neobservată.<br />
-              Anii au trecut, iar cei doi nu au ales comoditatea, ci certitudinea, una rară, statornică și profundă.
-            </p>
-
-            <p>
-              Priviri schimbate, mâini care s-au regăsit mereu, promisiuni nerostite dar respectate cu sfințenie…<br />
-              toate au condus, inevitabil, către momentul pe care societatea îl bănuia, dar pe care doar iubirea îl putea confirma.
-            </p>
-
-            <p>
               Iar acum, dragi cititori, secretul este dezvăluit:<br />
               o promisiune șoptită va deveni un legământ rostit, iar doi îndrăgostiți vor păși, cu grație și hotărâre, în căsătorie.
             </p>
 
             <p>
-              Sunteți invitați să fiți martorii unui eveniment de cea mai mare importanță<br />
-              nu un simplu anunț, ci celebrarea unei iubiri asumate, cultivate și, mai presus de toate, destinate să dăinuie.
+              Sunteți invitați să fiți martorii unei iubiri asumate, cultivate și, mai presus de toate, destinate să dăinuie.<br />
+             
             </p>
 
             <p>
