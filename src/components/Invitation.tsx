@@ -363,8 +363,8 @@ export function Invitation() {
              
               <div className="flex flex-col items-center">
                 <a 
-                  href="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/023d3f87-d315-4bce-bebc-104525a66326/bridge-1-1770304983369.jpg" 
-                  download="Invitation_Sebastian_Marina.png"
+                  href="/Invitatie.png" 
+                  download="Invitatie.png"
                   className="w-full sm:w-auto px-8 md:px-10 py-3.5 md:py-4 bg-[#c5a059] text-white uppercase tracking-[0.12em] md:tracking-[0.22em] text-sm md:text-base font-semibold hover:bg-[#b08d4a] transition-all transform hover:scale-105 shadow-xl border border-white/20 rounded-sm text-center"
                 >
                   Descarcã invitația
