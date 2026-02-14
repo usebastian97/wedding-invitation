@@ -388,7 +388,7 @@ export function Invitation() {
              
               <div className="flex flex-col items-center">
                 <a 
-                  href="/Invitatie.png" 
+                  href="/Invitatie-Marina-si-Sebastian.png" 
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full sm:w-auto px-8 md:px-10 py-3.5 md:py-4 bg-[#c5a059] text-white uppercase tracking-[0.12em] md:tracking-[0.22em] text-sm md:text-base font-semibold hover:bg-[#b08d4a] transition-all transform hover:scale-105 shadow-xl border border-white/20 rounded-sm text-center"

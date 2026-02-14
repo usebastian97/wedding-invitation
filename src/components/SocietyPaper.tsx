@@ -65,7 +65,7 @@ export function SocietyPaper() {
             </p>
 
             <p>
-              Sunteți invitați să fiți martorii unei iubiri asumate, cultivate și, mai presus de toate, destinate să dăinuie, alături de părinții noștrii Dumitru & Liliana Uțoiu şi Mihai & Mihaela Ștefan.<br />
+              Sunteți invitați să fiți martorii unei iubiri asumate, cultivate și, mai presus de toate, destinate să dăinuie, alături de părinții noștri Mihai & Mihaela Ștefan & Dumitru & Liliana Uțoiu.<br />
              
             </p>
 
