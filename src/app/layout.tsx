@@ -17,7 +17,7 @@ const playfair = Playfair_Display({
   variable: "--font-playfair",
 });
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://wedding-invitation.vercel.app";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://wedding-invitation-theta-wine.vercel.app";
 const heroImage =
   "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/023d3f87-d315-4bce-bebc-104525a66326/Gemini_Generated_Image_5kubfe5kubfe5kub-resized-1770299721566.webp";
 
